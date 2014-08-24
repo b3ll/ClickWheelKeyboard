@@ -67,20 +67,13 @@
   _deleteButton.frame = CGRectMake(bounds.size.width - 43.0, self.view.bounds.size.height - 34.0, 33.0, 24.0);
 }
 
-- (void)textWillChange:(id<UITextInput>)textInput {
-  // The app is about to change the document's contents. Perform any preparation here.
-}
-
-- (void)textDidChange:(id<UITextInput>)textInput {
-  // The app has just changed the document's contents, the document context has been updated.
-  
+- (void)textDidChange:(id<UITextInput>)textInput {  
   UIColor *textColor = nil;
   if (self.textDocumentProxy.keyboardAppearance == UIKeyboardAppearanceDark) {
     textColor = [UIColor whiteColor];
   } else {
     textColor = [UIColor blackColor];
   }
-  //[self.nextKeyboardButton setTitleColor:textColor forState:UIControlStateNormal];
 }
 
 - (void)_delete

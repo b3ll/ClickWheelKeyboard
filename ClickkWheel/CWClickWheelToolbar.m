@@ -13,8 +13,11 @@
 #import <POP/POP.h>
 
 static NSString *const kCharacterCollectionViewCellReuseIdentifier = @"kCharacterCollectionViewCellKey";
-static NSString *const kScrollViewAnimationKey = @"kScrollViewAnimationKey";
-static NSString *const characterLookup = @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,!?@#/\"'$%^&*;:()[]{}-+=";
+static NSString *const kCharacterCollectionViewScrollViewAnimationKey = @"kCollectionViewScrollViewAnimationKey";
+
+// lulz.
+static NSString *const characterLookup = @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,!?@#/\"'-+=$%^&*;:()[]{}<>";
+static NSString *const emojiLookup = @"😄😃😀😊☺😉😍😘😚😗😙😜😝😛😳😁😔😌😒😞😣😢😂😭😪😥😰😅😓😩😫😨😱😠😡😤😖😆😋😷😎😴😵😲😟😦😧😈👿😮😬😐😕😯😶😇😏😑👲👳👮👷💂👶👦👧👨👩👴👵👱👼👸😺😸😻😽😼🙀😿😹😾👹👺🙈🙉🙊💀👽💩🔥✨🌟💫💥💢💦💧💤💨👂👀👃👅👄👍👎👌👊✊✌👋✋👐👆👇👉👈🙌🙏☝👏💪🚶🏃💃👫👪👬👭💏💑👯🙆🙅💁🙋💆💇💅👰🙎🙍🙇🎩👑👒👟👞👡👠👢👕👔👚👗🎽👖👘👙💼👜👝👛👓🎀🌂💄💛💙💜💚❤💔💗💓💕💖💞💘💌💋💍💎👤👥💬👣💭🐶🐺🐱🐭🐹🐰🐸🐯🐨🐻🐷🐽🐮🐗🐵🐒🐴🐑🐘🐼🐧🐦🐤🐥🐣🐔🐍🐢🐛🐝🐜🐞🐌🐙🐚🐠🐟🐬🐳🐋🐄🐏🐀🐃🐅🐇🐉🐎🐐🐓🐕🐖🐁🐂🐲🐡🐊🐫🐪🐆🐈🐩🐾💐🌸🌷🍀🌹🌻🌺🍁🍃🍂🌿🌾🍄🌵🌴🌲🌳🌰🌱🌼🌐🌞🌝🌚🌑🌒🌓🌔🌕🌖🌗🌘🌜🌛🌙🌍🌎🌏🌋🌌🌠⭐☀⛅☁⚡☔❄⛄🌀🌁🌈🌊🎍💝🎎🎒🎓🎏🎆🎇🎐🎑🎃👻🎅🎄🎁🎋🎉🎊🎈🎌🔮🎥📷📹📼💿📀💽💾💻📱☎📞📟📠📡📺📻🔊🔉🔈🔇🔔🔕📢📣⏳⌛⏰⌚🔓🔒🔏🔐🔑🔎💡🔦🔆🔅🔌🔋🔍🛁🛀🚿🚽🔧🔩🔨🚪🚬💣🔫🔪💊💉💰💴💵💷💶💳💸📲📧📥📤✉📩📨📯📫📪📬📭📮📦📝📄📃📑📊📈📉📜📋📅📆📇📁📂✂📌📎✒✏📏📐📕📗📘📙📓📔📒📚📖🔖📛🔬🔭📰🎨🎬🎤🎧🎼🎵🎶🎹🎻🎺🎷🎸👾🎮🃏🎴🀄🎲🎯🏈🏀⚽⚾🎾🎱🏉🎳⛳🚵🚴🏁🏇🏆🎿🏂🏊🏄🎣☕🍵🍶🍼🍺🍻🍸🍹🍷🍴🍕🍔🍟🍗🍖🍝🍛🍤🍱🍣🍥🍙🍘🍚🍜🍲🍢🍡🍳🍞🍩🍮🍦🍨🍧🎂🍰🍪🍫🍬🍭🍯🍎🍏🍊🍋🍒🍇🍉🍓🍑🍈🍌🍐🍍🍠🍆🍅🌽🏠🏡🏫🏢🏣🏥🏦🏪🏩🏨💒⛪🏬🏤🌇🌆🏯🏰⛺🏭🗼🗾🗻🌄🌅🌃🗽🌉🎠🎡⛲🎢🚢⛵🚤🚣⚓🚀✈💺🚁🚂🚊🚉🚞🚆🚄🚅🚈🚇🚝🚋🚃🚎🚌🚍🚙🚘🚗🚕🚖🚛🚚🚨🚓🚔🚒🚑🚐🚲🚡🚟🚠🚜💈🚏🎫🚦🚥⚠🚧🔰⛽🏮🎰♨🗿🎪🎭📍🚩🇯🇵🇰🇷🇩🇪🇨🇳🇺🇸🇫🇷🇪🇸🇮🇹🇷🇺🇬🇧1⃣2⃣3⃣4⃣5⃣6⃣7⃣8⃣9⃣0⃣🔟🔢#⃣🔣⬆⬇⬅➡🔠🔡🔤↗↖↘↙↔↕🔄◀▶🔼🔽↩↪ℹ⏪⏩⏫⏬⤵⤴🆗🔀🔁🔂🆕🆙🆒🆓🆖📶🎦🈁🈯🈳🈵🈴🈲🉐🈹🈺🈶🈚🚻🚹🚺🚼🚾🚰🚮🅿♿🚭🈷🈸🈂Ⓜ🛂🛄🛅🛃🉑㊙㊗🆑🆘🆔🚫🔞📵🚯🚱🚳🚷🚸⛔✳❇❎✅✴💟🆚📳📴🅰🅱🆎🅾💠➿♻♈♉♊♋♌♍♎♏♐♑♒♓⛎🔯🏧💹💲💱©®™❌‼⁉❗❓❕❔⭕🔝🔚🔙🔛🔜🔃🕛🕧🕐🕜🕑🕝🕒🕞🕓🕟🕔🕠🕕🕖🕗🕘🕙🕚🕡🕢🕣🕤🕥🕦✖➕➖➗♠♥♣♦💮💯✔☑🔘🔗➰〰〽🔱◼◻◾◽▪▫🔺🔲🔳⚫⚪🔴🔵🔻⬜⬛🔶🔷🔸🔹";
 
 @interface CWClickWheelToolbar () <UICollectionViewDelegate, UICollectionViewDataSource>
 @end
@@ -49,9 +52,7 @@ static NSString *const characterLookup = @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijk
     
     NSString *clickSoundFilePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"Click" ofType:@"caf"];
     NSURL *clickSoundFileURL = [NSURL URLWithString:clickSoundFilePath];
-    SystemSoundID clickSoundID;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)clickSoundFileURL, &clickSoundID);
-    _clickSoundID = clickSoundID;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)clickSoundFileURL, &_clickSoundID);
     
     self.userInteractionEnabled = NO;
   }
@@ -93,26 +94,29 @@ static NSString *const characterLookup = @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijk
   
   AudioServicesPlaySystemSound(_clickSoundID);
   
-  POPSpringAnimation *springAnimation = [_characterCollectionView pop_animationForKey:kScrollViewAnimationKey];
+  POPSpringAnimation *springAnimation = [_characterCollectionView pop_animationForKey:kCharacterCollectionViewScrollViewAnimationKey];
   if (springAnimation == nil) {
     springAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPScrollViewContentOffset];
-    [_characterCollectionView pop_addAnimation:springAnimation forKey:kScrollViewAnimationKey];
+    [_characterCollectionView pop_addAnimation:springAnimation forKey:kCharacterCollectionViewScrollViewAnimationKey];
   }
   
-  springAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(44.0 * characterIndex, 0.0)];
+  springAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.bounds.size.height * characterIndex, 0.0)];
 }
 
 #pragma mark - Helper Functions
-static char characterForIndex(NSUInteger characterIndex, BOOL CAPSLOCK)
+static NSString * characterForIndex(NSUInteger characterIndex, BOOL CAPSLOCK)
 {
   char c = 0;
   if (characterIndex < 26) {
     c = [characterLookup characterAtIndex:((CAPSLOCK ? 0 : 26) + characterIndex)];
-  } else {
+  } else if (characterIndex < (characterLookup.length - 26)) {
     c = [characterLookup characterAtIndex:characterIndex + 26];
+  } else {
+    NSRange emojiRange = [emojiLookup rangeOfComposedCharacterSequencesForRange:NSMakeRange((characterIndex - (characterLookup.length - 26)) * 2, 1)];
+    return [emojiLookup substringWithRange:emojiRange];
   }
   
-  return c;
+  return [NSString stringWithFormat:@"%c", c];
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -129,7 +133,7 @@ static char characterForIndex(NSUInteger characterIndex, BOOL CAPSLOCK)
 #pragma mark - UICollectionViewDataSource
 - (NSUInteger)maxCharacters
 {
-  return characterLookup.length - 26;
+  return (characterLookup.length - 26) + (emojiLookup.length / 2);
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -143,11 +147,12 @@ static char characterForIndex(NSUInteger characterIndex, BOOL CAPSLOCK)
   
   UILabel *textLabel = (UILabel *)[cell viewWithTag:0x1337];
   if (textLabel == nil) {
-    textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 44.0, 44.0)];
+    textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, cell.bounds.size.width, cell.bounds.size.height)];
     textLabel.textAlignment = NSTextAlignmentCenter;
     textLabel.font = [UIFont systemFontOfSize:18.0];
     textLabel.textColor = [UIColor whiteColor];
     textLabel.tag = 0x1337;
+    textLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [cell addSubview:textLabel];
     
     UIView *selectedView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 44.0, 44.0)];
@@ -159,7 +164,7 @@ static char characterForIndex(NSUInteger characterIndex, BOOL CAPSLOCK)
 
   cell.selected = (_characterIndex == indexPath.row);
   
-  textLabel.text = [NSString stringWithFormat:@"%c", characterForIndex(indexPath.row, _CAPSLOCKENABLED)];
+  textLabel.text = characterForIndex(indexPath.row, _CAPSLOCKENABLED);
 
   return cell;
 }
@@ -187,7 +192,7 @@ static char characterForIndex(NSUInteger characterIndex, BOOL CAPSLOCK)
 
 - (NSString *)currentCharacter
 {
-  return [NSString stringWithFormat:@"%c", characterForIndex(self.characterIndex, self.CAPSLOCKENABLED)];
+  return characterForIndex(_characterIndex, _CAPSLOCKENABLED);
 }
 
 @end

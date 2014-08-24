@@ -10,6 +10,12 @@
 
 static CGFloat kAngleDeltaRequiredToClick = 26.0;
 
+static CGFloat kWheelInset = 10.0;
+static CGFloat kWheelToButtonRatio = 0.64;
+
+#define DEGREES_TO_RADIANS(angle) (angle * (M_PI / 180.0))
+#define RADIANS_TO_DEGREES(angle) (angle * (180.0 / M_PI))
+
 @interface CWClickWheelView () <UIInputViewAudioFeedback>
 @end
 
@@ -45,11 +51,11 @@ static CGFloat kAngleDeltaRequiredToClick = 26.0;
   
   CGRect bounds = self.bounds;
   
-  _wheelRect = CGRectInset(bounds, 10.0, 10.0);
+  _wheelRect = CGRectInset(bounds, kWheelInset, kWheelInset);
   _wheelRect.size.width = _wheelRect.size.height;
   _wheelRect.origin.x = floor((bounds.size.width - _wheelRect.size.width) / 2.0);
   
-  _selectButtonRect = CGRectInset(_wheelRect, (_wheelRect.size.width * 0.64) / 2.0, (_wheelRect.size.width * 0.64) / 2.0);
+  _selectButtonRect = CGRectInset(_wheelRect, (_wheelRect.size.width * kWheelToButtonRatio) / 2.0, (_wheelRect.size.width * kWheelToButtonRatio) / 2.0);
   
   CGFloat wheelWidth = (_wheelRect.size.height - _selectButtonRect.size.height) / 2.0;
   
@@ -81,7 +87,7 @@ static CGFloat kAngleDeltaRequiredToClick = 26.0;
   CGFloat deltaX = currentPoint.x - centerPoint.x;
   CGFloat deltaY = currentPoint.y - centerPoint.y;
   
-  CGFloat currentAngle = (atan2(deltaY, deltaX) * (180.0 / M_PI)) + 90.0;
+  CGFloat currentAngle = RADIANS_TO_DEGREES(atan2(deltaY, deltaX)) + 90.0;
   if (currentAngle < 0.0) {
     currentAngle = 180.0 + (180 + currentAngle);
   }
@@ -108,7 +114,7 @@ static CGFloat kAngleDeltaRequiredToClick = 26.0;
       CGFloat radPrevious = _previousAngle * (M_PI / 180.0);
       CGFloat radCurrent = currentAngle * (M_PI / 180.0);
       
-      _totalAngle += atan2(sin(radPrevious - radCurrent), cos(radPrevious - radCurrent)) * (180.0 / M_PI);
+      _totalAngle += RADIANS_TO_DEGREES(atan2(sin(radPrevious - radCurrent), cos(radPrevious - radCurrent)));
       _previousAngle = currentAngle;
       
       BOOL shouldClick = NO;
