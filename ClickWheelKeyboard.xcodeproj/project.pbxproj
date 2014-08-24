@@ -12,7 +12,7 @@
 		66047D3819A881D200389ED7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66047D3719A881D200389ED7 /* ViewController.m */; };
 		66047D3D19A881D200389ED7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66047D3C19A881D200389ED7 /* Images.xcassets */; };
 		6611BA5A19A8FB6B00144F68 /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6611BA5919A8FB6B00144F68 /* KeyboardViewController.m */; };
-		6611BA5D19A8FB6B00144F68 /* ClickkWheel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6611BA5419A8FB6B00144F68 /* ClickkWheel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6611BA5D19A8FB6B00144F68 /* ClickWheel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6611BA5419A8FB6B00144F68 /* ClickWheel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6611BA6E19A8FC4500144F68 /* CWClickWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6611BA6D19A8FC4500144F68 /* CWClickWheelView.m */; };
 		6611BA7019A906C600144F68 /* Click.caf in Resources */ = {isa = PBXBuildFile; fileRef = 6611BA6F19A906C600144F68 /* Click.caf */; };
 		6611BA7D19A9411F00144F68 /* CWClickWheelToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6611BA7B19A9411F00144F68 /* CWClickWheelToolbar.m */; };
@@ -82,7 +82,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				6611BA5D19A8FB6B00144F68 /* ClickkWheel.appex in Embed App Extensions */,
+				6611BA5D19A8FB6B00144F68 /* ClickWheel.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,7 +98,7 @@
 		66047D3619A881D200389ED7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		66047D3719A881D200389ED7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		66047D3C19A881D200389ED7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6611BA5419A8FB6B00144F68 /* ClickkWheel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClickkWheel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6611BA5419A8FB6B00144F68 /* ClickWheel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClickWheel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		6611BA5719A8FB6B00144F68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6611BA5819A8FB6B00144F68 /* KeyboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyboardViewController.h; sourceTree = "<group>"; };
 		6611BA5919A8FB6B00144F68 /* KeyboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardViewController.m; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				66047D2E19A881D100389ED7 /* ClickWheelKeyboard */,
-				6611BA5519A8FB6B00144F68 /* ClickkWheel */,
+				6611BA5519A8FB6B00144F68 /* ClickWheel */,
 				66047D2D19A881D100389ED7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -146,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				66047D2C19A881D100389ED7 /* ClickWheelKeyboard.app */,
-				6611BA5419A8FB6B00144F68 /* ClickkWheel.appex */,
+				6611BA5419A8FB6B00144F68 /* ClickWheel.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,7 +173,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6611BA5519A8FB6B00144F68 /* ClickkWheel */ = {
+		6611BA5519A8FB6B00144F68 /* ClickWheel */ = {
 			isa = PBXGroup;
 			children = (
 				6611BA7E19A950BB00144F68 /* pop.xcodeproj */,
@@ -185,6 +185,7 @@
 				6611BA5919A8FB6B00144F68 /* KeyboardViewController.m */,
 				6611BA5619A8FB6B00144F68 /* Supporting Files */,
 			);
+			name = ClickWheel;
 			path = ClickkWheel;
 			sourceTree = "<group>";
 		};
@@ -235,9 +236,9 @@
 			productReference = 66047D2C19A881D100389ED7 /* ClickWheelKeyboard.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6611BA5319A8FB6B00144F68 /* ClickkWheel */ = {
+		6611BA5319A8FB6B00144F68 /* ClickWheel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6611BA6019A8FB6B00144F68 /* Build configuration list for PBXNativeTarget "ClickkWheel" */;
+			buildConfigurationList = 6611BA6019A8FB6B00144F68 /* Build configuration list for PBXNativeTarget "ClickWheel" */;
 			buildPhases = (
 				6611BA5019A8FB6B00144F68 /* Sources */,
 				6611BA5119A8FB6B00144F68 /* Frameworks */,
@@ -248,9 +249,9 @@
 			dependencies = (
 				6611BA8F19A950D500144F68 /* PBXTargetDependency */,
 			);
-			name = ClickkWheel;
+			name = ClickWheel;
 			productName = ClickkWheel;
-			productReference = 6611BA5419A8FB6B00144F68 /* ClickkWheel.appex */;
+			productReference = 6611BA5419A8FB6B00144F68 /* ClickWheel.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -290,7 +291,7 @@
 			projectRoot = "";
 			targets = (
 				66047D2B19A881D100389ED7 /* ClickWheelKeyboard */,
-				6611BA5319A8FB6B00144F68 /* ClickkWheel */,
+				6611BA5319A8FB6B00144F68 /* ClickWheel */,
 			);
 		};
 /* End PBXProject section */
@@ -375,12 +376,12 @@
 /* Begin PBXTargetDependency section */
 		6611BA5C19A8FB6B00144F68 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6611BA5319A8FB6B00144F68 /* ClickkWheel */;
+			target = 6611BA5319A8FB6B00144F68 /* ClickWheel */;
 			targetProxy = 6611BA5B19A8FB6B00144F68 /* PBXContainerItemProxy */;
 		};
 		6611BA5F19A8FB6B00144F68 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6611BA5319A8FB6B00144F68 /* ClickkWheel */;
+			target = 6611BA5319A8FB6B00144F68 /* ClickWheel */;
 			targetProxy = 6611BA5E19A8FB6B00144F68 /* PBXContainerItemProxy */;
 		};
 		6611BA8F19A950D500144F68 /* PBXTargetDependency */ = {
@@ -582,7 +583,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6611BA6019A8FB6B00144F68 /* Build configuration list for PBXNativeTarget "ClickkWheel" */ = {
+		6611BA6019A8FB6B00144F68 /* Build configuration list for PBXNativeTarget "ClickWheel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6611BA6119A8FB6B00144F68 /* Debug */,
