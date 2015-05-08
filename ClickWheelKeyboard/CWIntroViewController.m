@@ -14,31 +14,54 @@
 
 #define TABLEVIEW_CONTENT_OFFSET 44.0
 
+#define KEYBOARD_PREVIEW_OFFSET 34.0
+
 static NSString *const kCWIntroViewCellReuseIdentifier = @"CWIntroViewCellReuseIdentifier";
+
+static const NSUInteger kCWInstructionsLabelTag = 0x13379001;
 
 @interface CWIntroViewController ()
 
 @end
 
-@implementation CWIntroViewController
+@implementation CWIntroViewController {
+  UIImageView *_keyboardPreviewView;
+}
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  
+
+  self.tableView.contentInset = UIEdgeInsetsMake(TABLEVIEW_CONTENT_OFFSET, 0.0, 0.0, 0.0);
+
   self.view.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1];
-  
-  [[UITableView appearance] setSeparatorColor:[UIColor clearColor]];
-  
+
   [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCWIntroViewCellReuseIdentifier];
+
+  _keyboardPreviewView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[UIScreen mainScreen].bounds.size.width > 320.0 ? @"KeyboardPreview-Wide.png" : @"KeyboardPreview.png"]];
+  _keyboardPreviewView.backgroundColor = [UIColor whiteColor];
+  [self.view addSubview:_keyboardPreviewView];
 }
 
 - (void)viewDidLayoutSubviews
 {
   [super viewDidLayoutSubviews];
-  
-  // je ne care pas
-  self.tableView.contentOffset = CGPointMake(0.0, -TABLEVIEW_CONTENT_OFFSET - self.navigationController.navigationBar.bounds.size.height);
-  self.tableView.scrollEnabled = NO;
+
+  CGRect bounds = self.view.bounds;
+
+  UIView *footerView = [self.tableView viewWithTag:kCWInstructionsLabelTag];
+  CGFloat keyboardFrameY = MAX(CGRectGetMaxY(footerView.frame) + KEYBOARD_PREVIEW_OFFSET, bounds.size.height - self.tableView.contentInset.top - _keyboardPreviewView.bounds.size.height);
+  _keyboardPreviewView.frame = CGRectOffset(_keyboardPreviewView.bounds, 0.0, floor(keyboardFrameY));
+
+  if (CGRectGetMaxY(_keyboardPreviewView.frame) > bounds.size.height - self.tableView.contentInset.top) {
+    self.tableView.scrollEnabled = YES;
+
+    // yolo
+    if (self.tableView.contentSize.height < CGRectGetMaxY(_keyboardPreviewView.frame)) {
+      self.tableView.contentSize = CGSizeMake(self.tableView.contentSize.width, CGRectGetMaxY(_keyboardPreviewView.frame));
+    }
+  } else {
+    self.tableView.scrollEnabled = NO;
+  }
 }
 
 - (NSString *)title
@@ -60,11 +83,9 @@ static NSString *const kCWIntroViewCellReuseIdentifier = @"CWIntroViewCellReuseI
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCWIntroViewCellReuseIdentifier];
-  
-  cell.textLabel.text = @"Settings";
-  
+
   UIImage *settingsIconImage = [UIImage imageNamed:@"SettingsIcon.png"];
-  
+
   CAShapeLayer *iconMask = [CAShapeLayer layer];
   iconMask.frame = CGRectMake(0.0, 0.0, settingsIconImage.size.width, settingsIconImage.size.height);
   iconMask.path = [UIBezierPath bezierPathWithIOS7RoundedRect:iconMask.bounds cornerRadius:8.0].CGPath;
@@ -73,8 +94,10 @@ static NSString *const kCWIntroViewCellReuseIdentifier = @"CWIntroViewCellReuseI
   cell.imageView.layer.mask = iconMask;
   cell.imageView.clipsToBounds = YES;
 
+  cell.textLabel.text = @"Settings";
+
   cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-  
+
   return cell;
 }
 
@@ -99,11 +122,12 @@ static NSString *const kCWIntroViewCellReuseIdentifier = @"CWIntroViewCellReuseI
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
   CGFloat headerHeight = [tableView.delegate tableView:tableView heightForFooterInSection:section];
-  
+
   UIView *wrapperView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, tableView.bounds.size.width, headerHeight)];
+  wrapperView.backgroundColor = self.tableView.backgroundColor;
 
   NSString *headerText = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
-  
+
   UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
   headerLabel.numberOfLines = 1;
   headerLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
@@ -111,29 +135,30 @@ static NSString *const kCWIntroViewCellReuseIdentifier = @"CWIntroViewCellReuseI
   headerLabel.textColor = [UIColor colorWithRed:0.34 green:0.34 blue:0.36 alpha:1];
   headerLabel.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
   [headerLabel sizeToFit];
-  
+
   headerLabel.frame = CGRectMake(TABLEVIEW_INSET, wrapperView.bounds.size.height - headerLabel.bounds.size.height - TABLEVIEW_INSET, tableView.bounds.size.width, headerLabel.bounds.size.height);
-  
+
   [wrapperView addSubview:headerLabel];
-  
+
   return wrapperView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
   NSString *headerText = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
-  
+
   NSDictionary *attributes = @{ NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote] };
-  
+
   return [headerText sizeWithAttributes:attributes].height + (TABLEVIEW_INSET * 2.0);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
   CGFloat footerHeight = [tableView.delegate tableView:tableView heightForFooterInSection:section];
-  
+
   UIView *wrapperView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.tableView.bounds.size.width, footerHeight)];
-  
+  wrapperView.tag = kCWInstructionsLabelTag;
+
   NSString *footerText = [tableView.dataSource tableView:tableView titleForFooterInSection:section];
 
   UILabel *footerLabel = [[UILabel alloc] initWithFrame:CGRectMake(TABLEVIEW_INSET, TABLEVIEW_INSET, wrapperView.bounds.size.width - (TABLEVIEW_INSET * 2.0), wrapperView.bounds.size.height)];
@@ -142,19 +167,19 @@ static NSString *const kCWIntroViewCellReuseIdentifier = @"CWIntroViewCellReuseI
   footerLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
   footerLabel.text = footerText;
   footerLabel.textColor = [UIColor colorWithRed:0.34 green:0.34 blue:0.36 alpha:1];
-  footerLabel.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
-  
+  footerLabel.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
+
   [wrapperView addSubview:footerLabel];
-  
+
   return wrapperView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
   NSString *footerText = [tableView.dataSource tableView:tableView titleForFooterInSection:section];
-  
+
   NSDictionary *attributes = @{ NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2] };
-  
+
   return [footerText sizeWithAttributes:attributes].height * 2.0;
 }
 
