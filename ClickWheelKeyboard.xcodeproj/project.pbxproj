@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		66047D3219A881D200389ED7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66047D3119A881D200389ED7 /* main.m */; };
 		66047D3519A881D200389ED7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66047D3419A881D200389ED7 /* AppDelegate.m */; };
-		66047D3819A881D200389ED7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66047D3719A881D200389ED7 /* ViewController.m */; };
+		66047D3819A881D200389ED7 /* CWIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66047D3719A881D200389ED7 /* CWIntroViewController.m */; };
 		66047D3D19A881D200389ED7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66047D3C19A881D200389ED7 /* Images.xcassets */; };
 		6611BA5A19A8FB6B00144F68 /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6611BA5919A8FB6B00144F68 /* KeyboardViewController.m */; };
 		6611BA5D19A8FB6B00144F68 /* ClickWheel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6611BA5419A8FB6B00144F68 /* ClickWheel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -21,6 +21,8 @@
 		6611BA9619A98BF700144F68 /* GlobeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6611BA9519A98BF700144F68 /* GlobeIcon@2x.png */; };
 		6611BAE319A9A70200144F68 /* DeleteIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6611BAE119A9A70200144F68 /* DeleteIcon@2x.png */; };
 		6611BAE419A9A70200144F68 /* DeleteIconSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6611BAE219A9A70200144F68 /* DeleteIconSelected@2x.png */; };
+		665850A71AFC6710005A2833 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 665850A91AFC6710005A2833 /* Localizable.strings */; };
+		665850B51AFC8C02005A2833 /* UIBezierPath+IOS7RoundedRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 665850B41AFC8C02005A2833 /* UIBezierPath+IOS7RoundedRect.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,13 @@
 			remoteGlobalIDString = EC191217162FB53A00E0CC76;
 			remoteInfo = pop;
 		};
+		66C391591AFC629700BBF333 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6611BA7E19A950BB00144F68 /* pop.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0B6BE74819FFD3B900762101;
+			remoteInfo = "pop-embedded";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,8 +104,8 @@
 		66047D3119A881D200389ED7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		66047D3319A881D200389ED7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		66047D3419A881D200389ED7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		66047D3619A881D200389ED7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		66047D3719A881D200389ED7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		66047D3619A881D200389ED7 /* CWIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CWIntroViewController.h; sourceTree = "<group>"; };
+		66047D3719A881D200389ED7 /* CWIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CWIntroViewController.m; sourceTree = "<group>"; };
 		66047D3C19A881D200389ED7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6611BA5419A8FB6B00144F68 /* ClickWheel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClickWheel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		6611BA5719A8FB6B00144F68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +121,9 @@
 		6611BA9519A98BF700144F68 /* GlobeIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GlobeIcon@2x.png"; sourceTree = "<group>"; };
 		6611BAE119A9A70200144F68 /* DeleteIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DeleteIcon@2x.png"; sourceTree = "<group>"; };
 		6611BAE219A9A70200144F68 /* DeleteIconSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DeleteIconSelected@2x.png"; sourceTree = "<group>"; };
+		665850AB1AFC67AE005A2833 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		665850B31AFC8C02005A2833 /* UIBezierPath+IOS7RoundedRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+IOS7RoundedRect.h"; sourceTree = "<group>"; };
+		665850B41AFC8C02005A2833 /* UIBezierPath+IOS7RoundedRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+IOS7RoundedRect.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,10 +166,11 @@
 		66047D2E19A881D100389ED7 /* ClickWheelKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				665850B21AFC8C02005A2833 /* UIBezierPath+IOS7RoundedRect */,
 				66047D3319A881D200389ED7 /* AppDelegate.h */,
 				66047D3419A881D200389ED7 /* AppDelegate.m */,
-				66047D3619A881D200389ED7 /* ViewController.h */,
-				66047D3719A881D200389ED7 /* ViewController.m */,
+				66047D3619A881D200389ED7 /* CWIntroViewController.h */,
+				66047D3719A881D200389ED7 /* CWIntroViewController.m */,
 				66047D3C19A881D200389ED7 /* Images.xcassets */,
 				66047D2F19A881D100389ED7 /* Supporting Files */,
 			);
@@ -167,6 +180,7 @@
 		66047D2F19A881D100389ED7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				665850A91AFC6710005A2833 /* Localizable.strings */,
 				66047D3019A881D200389ED7 /* Info.plist */,
 				66047D3119A881D200389ED7 /* main.m */,
 			);
@@ -207,10 +221,20 @@
 			children = (
 				6611BA8619A950BC00144F68 /* libpop.a */,
 				6611BA8819A950BC00144F68 /* pop.framework */,
-				6611BA8A19A950BC00144F68 /* pop-tests.octest */,
-				6611BA8C19A950BC00144F68 /* pop-tests-osx.octest */,
+				66C3915A1AFC629700BBF333 /* pop.framework */,
+				6611BA8A19A950BC00144F68 /* pop-tests.xctest */,
+				6611BA8C19A950BC00144F68 /* pop-tests-osx.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		665850B21AFC8C02005A2833 /* UIBezierPath+IOS7RoundedRect */ = {
+			isa = PBXGroup;
+			children = (
+				665850B31AFC8C02005A2833 /* UIBezierPath+IOS7RoundedRect.h */,
+				665850B41AFC8C02005A2833 /* UIBezierPath+IOS7RoundedRect.m */,
+			);
+			path = "UIBezierPath+IOS7RoundedRect";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,18 +335,25 @@
 			remoteRef = 6611BA8719A950BC00144F68 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		6611BA8A19A950BC00144F68 /* pop-tests.octest */ = {
+		6611BA8A19A950BC00144F68 /* pop-tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "pop-tests.octest";
+			path = "pop-tests.xctest";
 			remoteRef = 6611BA8919A950BC00144F68 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		6611BA8C19A950BC00144F68 /* pop-tests-osx.octest */ = {
+		6611BA8C19A950BC00144F68 /* pop-tests-osx.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "pop-tests-osx.octest";
+			path = "pop-tests-osx.xctest";
 			remoteRef = 6611BA8B19A950BC00144F68 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		66C3915A1AFC629700BBF333 /* pop.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = pop.framework;
+			remoteRef = 66C391591AFC629700BBF333 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -333,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66047D3D19A881D200389ED7 /* Images.xcassets in Resources */,
+				665850A71AFC6710005A2833 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +387,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66047D3819A881D200389ED7 /* ViewController.m in Sources */,
+				66047D3819A881D200389ED7 /* CWIntroViewController.m in Sources */,
+				665850B51AFC8C02005A2833 /* UIBezierPath+IOS7RoundedRect.m in Sources */,
 				66047D3519A881D200389ED7 /* AppDelegate.m in Sources */,
 				66047D3219A881D200389ED7 /* main.m in Sources */,
 			);
@@ -390,6 +423,17 @@
 			targetProxy = 6611BA8E19A950D500144F68 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		665850A91AFC6710005A2833 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				665850AB1AFC67AE005A2833 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		66047D4A19A881D200389ED7 /* Debug */ = {

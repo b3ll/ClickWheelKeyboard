@@ -8,19 +8,25 @@
 
 #import "AppDelegate.h"
 
-#import "ViewController.h"
+#import "CWIntroViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () {
+  CWIntroViewController *_introViewController;
+}
 
 @end
 
 @implementation AppDelegate
             
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  _rootViewController = [[ViewController alloc] init];
+  _introViewController = [[CWIntroViewController alloc] init];
+  
+  _rootViewController = [[UINavigationController alloc] initWithRootViewController:_introViewController];
+  
   _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   _window.rootViewController = _rootViewController;
   [_window makeKeyAndVisible];
+    
   return YES;
 }
 

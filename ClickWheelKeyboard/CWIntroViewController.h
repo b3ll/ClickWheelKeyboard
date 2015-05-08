@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CWIntroViewController.h
 //  ClickWheelKeyboard
 //
 //  Created by Adam Bell on 2014-08-23.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface CWIntroViewController : UITableViewController
 
 
 @end
