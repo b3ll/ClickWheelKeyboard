@@ -50,9 +50,11 @@ static NSString *const emojiLookup = @"😄😃😀😊☺😉😍😘😚�
     [_characterCollectionView reloadData];
     [self _fixEverythingBecauseImLazy];
     
-    NSString *clickSoundFilePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"Click" ofType:@"caf"];
-    NSURL *clickSoundFileURL = [NSURL URLWithString:clickSoundFilePath];
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)clickSoundFileURL, &_clickSoundID);
+    if (_hack_hasFullAccess()) {
+      NSString *clickSoundFilePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"Click" ofType:@"caf"];
+      NSURL *clickSoundFileURL = [NSURL URLWithString:clickSoundFilePath];
+      AudioServicesCreateSystemSoundID((__bridge CFURLRef)clickSoundFileURL, &_clickSoundID);
+    }
     
     self.userInteractionEnabled = NO;
   }
@@ -92,7 +94,9 @@ static NSString *const emojiLookup = @"😄😃😀😊☺😉😍😘😚�
 
   [_characterCollectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:characterIndex inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
   
-  AudioServicesPlaySystemSound(_clickSoundID);
+  if (_hack_hasFullAccess()) {
+    AudioServicesPlaySystemSound(_clickSoundID);
+  }
   
   POPSpringAnimation *springAnimation = [_characterCollectionView pop_animationForKey:kCharacterCollectionViewScrollViewAnimationKey];
   if (springAnimation == nil) {
@@ -193,6 +197,12 @@ static NSString * characterForIndex(NSUInteger characterIndex, BOOL CAPSLOCK)
 - (NSString *)currentCharacter
 {
   return characterForIndex(_characterIndex, _CAPSLOCKENABLED);
+}
+
+//! Dirty trick to see if the keyboard has full access... If sounds try to play without full access they cause the keyboard to drop frames like a boss. :/
+static BOOL _hack_hasFullAccess()
+{
+  return ([UIPasteboard generalPasteboard] != nil);
 }
 
 @end
