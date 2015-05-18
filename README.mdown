@@ -7,6 +7,8 @@ Joke entry for iOS Dev Camp 2014.
 
 Now available on the [App Store](https://itunes.apple.com/us/app/click-wheel-keyboard/id993111285?mt=8)!
 
+![preview](https://github.com/b3ll/ClickWheelKeyboard/blob/master/README/Preview.png)
+
 ### Intro
 Typing with two hands is such a chore, who needs extra complexity when writing! Just scroll through all characters! :D
 
