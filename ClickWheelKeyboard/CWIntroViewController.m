@@ -37,7 +37,7 @@ static const NSUInteger kCWInstructionsLabelTag = 0x13379001;
 
   [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCWIntroViewCellReuseIdentifier];
 
-  _keyboardPreviewView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[UIScreen mainScreen].bounds.size.width > 320.0 ? @"KeyboardPreview-Wide.png" : @"KeyboardPreview.png"]];
+  _keyboardPreviewView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[UIScreen mainScreen].bounds.size.width > 320.0 ? @"KeyboardInfo-Wide.png" : @"KeyboardInfo.png"]];
   _keyboardPreviewView.backgroundColor = [UIColor whiteColor];
   [self.view addSubview:_keyboardPreviewView];
 }
